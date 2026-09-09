@@ -1,15 +1,17 @@
 ---
-name: "jellyfin-plugin-tmdbboxsets"
-guid: "bc4aad2e-d3d0-4725-a5e2-fd07949e5b42"
-version: "5" # Please increment with each pull request
-jellyfin_version: "10.5.0" # The earliest binary-compatible version
-owner: "jellyfin"
-nicename: "TMDb Box Sets"
-description: "Automatically create movie box sets based on TMDb collections"
-overview: "Automatically create movie box sets based on TMDb collections"
+name: "jellyfin-plugin-themesongs"
+guid: "afe1de9c-63e4-4692-8d8c-7c964df19eb2"
+version: "12.0.0.0"
+targetAbi: "12.0.0.0"
+jellyfin_version: "12.0.0" # The earliest binary-compatible version
+owner: "magnetgrouplabs"
+nicename: "Theme Songs"
+description: "Automatically downloads theme songs for your TV show library"
+overview: "Automatically downloads theme songs for your TV show library"
 category: "Metadata"
+changelog: "Jellyfin 12.0 build (net10.0, Jellyfin.Controller 12.0.0)"
 artifacts:
-  - "Jellyfin.Plugin.TMDbBoxSets.dll"
+  - "Jellyfin.Plugin.ThemeSongs.dll"
 build_type: "dotnet"
 dotnet_configuration: "Release"
-dotnet_framework: "netstandard2.1"
+dotnet_framework: "net10.0"
