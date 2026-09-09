@@ -1,3 +1,6 @@
+> This fork is the Jellyfin 12 build of danieladov's Theme Songs plugin, built from pull request 56.
+> Add this repository in Jellyfin: https://raw.githubusercontent.com/magnetgrouplabs/jellyfin-plugin-themesongs/master/manifest.json
+
 <h1 align="center">Jellyfin Theme Songs Plugin</h1>
 <h3 align="center">Part of the <a href="https://jellyfin.org">Jellyfin Project</a></h3>
 
