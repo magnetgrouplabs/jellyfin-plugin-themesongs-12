@@ -1,51 +1,58 @@
-> This fork is the Jellyfin 12 build of danieladov's Theme Songs plugin, built from pull request 56.
-> Add this repository in Jellyfin: https://raw.githubusercontent.com/magnetgrouplabs/jellyfin-plugin-themesongs/master/manifest.json
+# Theme Songs 12
 
-<h1 align="center">Jellyfin Theme Songs Plugin</h1>
-<h3 align="center">Part of the <a href="https://jellyfin.org">Jellyfin Project</a></h3>
+Theme Songs downloads the theme song for each TV show in your library as `theme.mp3` in the show's folder, so Jellyfin plays it natively when you open the show.
 
-<p align="center">
-Jellyfin Theme Songs plugin is a plugin that automatically downloads every theme song of your tv show library;
+This is a maintained hard fork of [danieladov's Theme Songs plugin](https://github.com/danieladov/jellyfin-plugin-themesongs) for Jellyfin 12 and later. Credit to danieladov, the original author.
 
-</p>
+## Requirements
 
-## Install Process
+- Jellyfin 12.0 or newer.
+- A theme source URL template. The plugin does not ship a default source, so downloads do nothing until you set one:
+  1. Go to Dashboard, Plugins, Theme Songs.
+  2. Enter a valid source URL in the settings field.
+  3. Click Save.
 
+## Install
 
-## From Repository
-1. In jellyfin, go to dashboard -> plugins -> Repositories -> add and paste this link https://raw.githubusercontent.com/danieladov/JellyfinPluginManifest/master/manifest.json
-2. Go to Catalog and search for Theme Songs
-3. Click on it and install
-4. Restart Jellyfin
+1. In Jellyfin, go to Dashboard, Plugins, Repositories, Add, and paste:
+   `https://raw.githubusercontent.com/magnetgrouplabs/jellyfin-plugin-themesongs-12/master/manifest.json`
+2. Go to Catalog, find Theme Songs, and install it.
+3. Restart Jellyfin.
+4. Configure the source URL (see Requirements).
 
+To install by hand, download the zip from the Releases page, extract the .dll into a folder called `plugins/Theme Songs` under the Jellyfin program data directory, and restart.
 
-## From .zip file
-1. Download the .zip file from release page
-2. Extract it and place the .dll file in a folder called ```plugins/Theme Songs``` under  the program data directory or inside the portable install directory
-3. Restart Jellyfin
-4. 
-## Configuration ⚠️
+## Using it
 
-**Important:** This plugin **does not provide a default source URL**. You must configure it manually for the downloads to work.
+Download theme songs from the scheduled task, or directly from the plugin's settings page. Enable the "Theme Songs" option under Display in your user settings so Jellyfin plays them.
 
-1. Go to **Dashboard** -> **Plugins** -> **Theme Songs**.
-2. Enter a valid source URL in the settings field.
-3. Click **Save**.
-## User Guide
-1. To download the theme songs you can do it from Schedule task or directly from the configuration of the plugin.
-2. You need to have enabled the option "Theme Songs" under display
+## Migrating from the original plugin
 
+This build keeps the original plugin ID (`afe1de9c-63e4-4692-8d8c-7c964df19eb2`), so it upgrades in place. Add the repository above, remove the old repository, and update the plugin. Your configuration and existing `theme.mp3` files are kept.
 
+## Compatibility
 
+| Plugin version | Jellyfin target ABI | Jellyfin version | Where |
+|---|---|---|---|
+| 12.0.0.0 | 12.0.0.0 | 12.0 and newer | This repository |
+| 10.11.0.2 | 10.11 | 10.11 | [danieladov's repository](https://github.com/danieladov/jellyfin-plugin-themesongs/releases) |
 
+Jellyfin 10.11 users should stay on the original plugin.
 
-## Build Process
-1. Clone or download this repository
-2. Ensure you have .NET Core SDK setup and installed
-3. Build plugin with following command.
-```sh
-dotnet publish --configuration Release --output bin
-```
-4. Place the resulting .dll file in a folder called ```plugins/Merge versions``` under  the program data directory or inside the portable install directory
+## Building
 
+1. Clone this repository.
+2. Install the .NET 10 SDK.
+3. Run:
+   ```sh
+   dotnet publish --configuration Release --output bin
+   ```
+4. Put the resulting `Jellyfin.Plugin.ThemeSongs.dll` in a folder called `plugins/Theme Songs` under the Jellyfin program data directory.
 
+## Status and support
+
+Report problems in this repository's issues. The upstream plugin has been unmaintained since December 2025, and pull request 56 has had no response since 2026-09-02 (checked 2026-10-07).
+
+## License
+
+MIT. The original copyright notice (Copyright (c) 2019 Claus Vium) is preserved in [LICENSE](LICENSE).
